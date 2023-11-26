@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href=" {{ url_for('static', filename='base.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Borel&family=Cookie&family=Courgette&family=Gasoek+One&family=Oregano&family=Poppins&family=Rancho&family=Sacramento&display=swap" rel="stylesheet">
+
+    <title>{% block title %}listic list app{% endblock %}</title>
+    {% block style %}
+        <style>
+            @media (min-width: 1100px) {
+                .right_list a, .left_list a {
+                    color: rgb(206, 16, 114);
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 1.2vh;
+                    transition: color 0.5s, text-shadow 1s;
+                }
+
+                .navbar_logo h1{
+                    color: rgb(206, 16, 114);
+                    font-family: 'Courgette', cursive;
+                    font-size: 3vh;
+                }
+    
+                .right_list a:hover, .left_list a:hover {
+                    color: rgb(255, 0, 132);
+                    text-shadow: 0px 2px 4px rgba(206, 16, 114, 0.78);
+                }
+            }
+        </style>
+    {% endblock %}
+</head>
+<body>
+    <header id="headere">
+        <div class="navbar_info">
+            {% if current_user.is_authenticated %}
+                <ul class="left_list">
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/acount">ACOUNT</a></li>
+                </ul>
+                <div class="navbar_logo">
+                    <a href="/"><h1>listic</h1></a>
+                </div>
+                <ul class="right_list">
+                    <li><a href="/list">LISTS</a></li>
+                    <li><a href="/logout"><button class="navbar_login" name="navbar_login">LOGOUT</button></a></li>
+                </ul>
+            {% else %}
+                <ul class="left_list">
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/acount">ACOUNT</a></li>
+                    <li><a>EXAMPLE</a></li>
+                </ul>
+                <div class="navbar_logo">
+                    <a href="/"><h1>listic</h1></a>
+                </div>
+                <ul class="right_list">
+                    <li><a href="/list">MAKE LIST</a></li>
+                    <li><a href="/login"><button class="navbar_login" name="navbar_login">LOGIN</button></a></li>
+                </ul>
+            {% endif %}
+        </div>
+    </header>
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} 
+        {% for category, message in messages %}
+        <div id="flash_parent">
+            {% if category == 'error' %}
+                <div class="error_flash">
+                    <div class="flash_info">
+                        <div class="flash_title">
+                            <p>Oops!</p>
+                        </div>
+                        <div class="message_container">
+                            <h1 class="message">{{ message }}</h1>
+                        </div>
+                    </div>
+                    <div class="escape_flash">
+                        <button onclick="closePopup()">&times;</button>
+                    </div>
+                </div>
+            {% elif category == ' succes' %}
+                <div class="succes_flash">
+                    <div class="flash_info">
+                        <div class="flash_title">
+                            <p>Yes!</p>
+                        </div>
+                        <div class="message_container">
+                            <h1 class="message">{{ message }}</h1>
+                        </div>
+                    </div>
+                    <div class="escape_flash">
+                        <button onclick="closePopup()">&times;</button>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    {% block content %}
+    {% endblock %}
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const header = document.getElementById("headere");
+    
+            window.addEventListener("scroll", function() {
+                if (window.scrollY > 0) {
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+            });
+        });
+
+        function closePopup() {
+                    const flashParent = document.getElementById("flash_parent");
+                    flashParent.style.display = "none";
+                }
+    </script>
+</body>
+</html>

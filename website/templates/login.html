@@ -1,0 +1,98 @@
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Borel&family=Cookie&family=Courgette&family=Gasoek+One&family=Oregano&family=Poppins&family=Rancho&family=Sacramento&display=swap" rel="stylesheet">
+        
+
+{% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} 
+    {% for category, message in messages %}
+    <div id="flash_parent">
+        {% if category == 'error' %}
+            <div class="error_flash">
+                <div class="flash_info">
+                    <div class="flash_title">
+                        <p>Oops!</p>
+                    </div>
+                    <div class="message_container">
+                        <h1 class="message">{{ message }}</h1>
+                    </div>
+                </div>
+                <div class="escape_flash">
+                    <button onclick="closePopup()">&times;</button>
+                </div>
+            </div>
+        {% else %}
+            <div class="succes_flash">
+                <div class="flash_title">
+                    <p>Yes!</p>
+                </div>
+                <div class="message_container">
+                    <h1 class="message">{{ message }}</h1>
+                </div>
+                <div class="escape_flash">
+                    <button onclick="closePopup()">&times;</button>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+
+
+
+
+
+        <div class="login_parent">
+            <div class="login_top">
+                <div class="flex_top">
+                    <a href="/"><p>listic</p></a>
+                </div>
+            </div>
+            <div class="left_login">
+                <form method="POST" class="test_div">
+                    <div class="header_login">
+                        <p>{% block loginsignup %}Login to Your Acount{% endblock %}</p>
+                    </div>
+                    <div class="login_input">
+                        {% block more_form %}
+                            <div>
+                                <input required type="email" placeholder="enter email" name="login_email">
+                            </div>
+                            <div>
+                                <input required type="password" placeholder="enter password" name="login_password">
+                            </div>
+                        {% endblock %}
+                    </div>
+                    <div class="signup_submit">
+                        <button type="submit">{% block logsign %}Sign In{% endblock %}</button>
+                    </div>
+                </form>
+            </div>
+            <div class="right_login">
+                <div class="center_signup">
+                    <div>
+                        <p class="welcome_text">{% block head_text %}New Here?{% endblock %}</p>
+                    </div>
+                    <div>
+                        <p class="login_text">{% block signlog_text %}Sign up for listic today and start to list your way!{% endblock %}</p>
+                    </div>
+                    <div>
+                        {% block logtok %}<a href="/signup"><button class="signup_btn">Sign Up</button></a>{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <script>
+                function closePopup() {
+                    const flashParent = document.getElementById("flash_parent");
+                    flashParent.style.display = "none";
+                }
+            </script>
+{% block content %}
+{% endblock %}

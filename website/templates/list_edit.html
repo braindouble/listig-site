@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% block title %}listic lists for you{% endblock %} 
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='list_edit.css') }}">
+        <div class="content_holder">
+            <div class="big_bar">
+                <div class="big_block">
+                    <div class="list_info">
+                        <div class="info_content">
+                            <div class="info_title">
+                                <h1>info</h1>
+                            </div>
+                            <div class="people_infone">
+                                <div class="flex_list">
+                                    {% for user in listing.users %}
+                                        <div class="people_block">
+                                            <div class="people_info">
+                                                <h3 class="namen">{{ user.username }}</h3>
+                                                <div class="lijsten">
+                                                    {% set lijst = user.lists %}
+                                                    <h3>{{ lijst|length }} lists</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat_content">
+                        <div class="chat_center">
+                            <ul>
+                                {% for list_item in current_list %}
+                                    {% if user %}
+                                        {% if list_item.user_id == user.id %}
+                                            <li class="right_message">
+                                                <div class="notesing_exact"><h2 class="data">{{ list_item.data }}</h2></div>
+                                            </li>
+                                        {% else %}
+                                            <li class="left_message">
+                                                <div class="note_exact">
+                                                    {% set the_user_id = list_item.user_id %}
+                                                    {% set the_user = User.query.get(the_user_id) %}
+                                                    <h3 class="username">{{ the_user.username }}</h3>
+                                                    <h2 class="data">{{ list_item.data }}</h2>
+                                                </div>
+                                            </li>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="input_full">
+                            <form class="chat_form" method="POST">
+                                <input type="text" name="item" placeholder="add item to shopping list" class="list_adder">
+                                <input type="text" name="share" placeholder="share with list with(optional)">
+                                <button type="submit">add item</button>
+                            </form>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+
+            <div class="right_bar">
+                <div class="right_block">
+                    
+                </div>
+            </div>
+        </div>
+{% endblock %}

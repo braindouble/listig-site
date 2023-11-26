@@ -1,0 +1,6 @@
+@media (min-width: 1100px) {
+    .between_parent{
+        background: rgb(0,5,255);
+        background: linear-gradient(130deg, rgba(0,5,255,0.9359900210084033) 10%, rgba(118,0,186,0.9387911414565826) 43%, rgba(205,16,115,0.9387911414565826) 91%);
+    }
+}

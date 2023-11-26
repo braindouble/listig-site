@@ -1,0 +1,240 @@
+.login_parent{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+body{
+    background-color: rgb(240,240,240);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+#flash_parent{
+    position: absolute;
+    z-index: 999;
+    margin-top: 1vh;
+    width: 100vw;
+    height: auto;
+    justify-content: center;
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+}
+
+.error_flash{
+    width: 17.5vw;
+    -webkit-box-shadow: 0px 2px 26px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 2px 26px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 26px 0px rgba(0, 0, 0, 0.3);
+    height: 5.4vh;
+    min-width: 350px;
+    background-color: rgb(246,62,80);
+    display: flex;
+    border-radius: 20px;
+}
+
+.flash_info{
+    height: 100%;
+    margin-left: 1.8vw;
+}
+
+.flash_info p{
+    color: white;
+    font-weight: 600;
+    font-size: 1.8vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.flash_info h1{
+    color: white;
+    font-weight: lighter;
+    font-size: 1vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.escape_flash{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: 0.4vw;
+}
+
+.escape_flash button{
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.25vh;
+    margin-bottom: 2vh;
+    cursor: pointer;
+    padding: 0;
+    font-weight: lighter;
+}
+
+.succes_flash{
+    width: 17.5vw;
+    height: 5.4vh;
+    min-width: 350px;
+    -webkit-box-shadow: 0px 2px 26px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 2px 26px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 26px 0px rgba(0, 0, 0, 0.3);
+    background-color: rgb(3,166,90);
+    display: flex;
+    border-radius: 20px;
+}
+
+
+@media (min-width: 1211px) {
+    .left_login{
+        width: 72%;
+        z-index: 2;
+        height: 100%;
+        background-color: rgb(240,240,240);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .right_login{
+        width: 28%;
+        z-index: 4;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(0,13,255);
+        background: linear-gradient(229deg, rgba(0,13,255,0.8155418417366946) 7%, rgba(118,0,186,0.9387911414565826) 25%, rgba(205,16,115,0.9387911414565826) 81%);
+    }
+
+    .center_signup{
+        height: auto;
+        width: auto;
+    }
+
+    .center_signup div{
+        display: flex;
+        justify-content: center;
+        height: auto;
+        width: 100%;
+        align-items: center;
+    }
+
+    .welcome_text{
+        font-size: 4vh;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 4vh;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .login_text{
+        color: rgba(255, 255, 255, 0.833);
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.8vh;
+        margin-bottom: 4vh;
+        width: 17vw;
+        font-weight: 100;
+        text-align: center;
+    }
+
+    .flex_top p{
+        color: rgb(206, 16, 114);
+        font-family: 'Courgette', cursive;
+        font-size: 2.7vh;
+        margin: 0.8vh 0vw 0px 1vw;
+    }
+
+    .signup_btn{
+        background-color: white;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1vh 3vw;
+        border: none;
+        font-family: 'Poppins', sans-serif;
+        color: rgb(12, 12, 12);
+        font-size: 1.3vh;
+        cursor: pointer;
+    }
+
+
+
+    form{
+        width: auto;
+        height: auto;
+    }
+
+    .center_signup div{
+        display: flex;
+        justify-content: center;
+        width: auto;
+    }
+
+    .header_login{
+        font-weight: 800;
+        font-family: 'Poppins', sans-serif;
+        color: black;
+        font-size: 3.8vh;
+        margin-bottom: 2.3vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    .login_input input{
+        margin: 1.3vh 0vw;
+        border: 1px solid black;
+        border-radius: 16px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(45, 45, 45);
+        font-family: 'Poppins', sans-serif;
+        padding-left: 3px;
+        align-items: center;
+        width: 17vw;
+        font-size: 1.6vh;
+        height: 2.75vh;
+    }
+
+    .login_input input::placeholder{
+        color: rgb(181, 181, 181);
+    }
+
+    .login_input div{
+        display: flex;
+        justify-content: center;
+    }
+
+    .left_login button{
+        background-color: rgba(205,16,115);
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1vh 3vw;
+        border: none;
+        font-family: 'Poppins', sans-serif;
+        color: rgb(255, 255, 255);
+        font-size: 1.3vh;
+        cursor: pointer;
+        margin-top: 2.3vh;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .left_login button:hover{
+        background-color: rgb(182, 0, 94);
+        -webkit-box-shadow: 0px 2px 26px 0px rgba(206,16,114,0.78);
+        -moz-box-shadow: 0px 2px 26px 0px rgba(206,16,114,0.78);
+        box-shadow: 0px 2px 26px 0px rgba(206, 16, 114, 0.78);
+    }
+
+    .signup_submit{
+        display: flex;
+        justify-content: center;
+    }
+}

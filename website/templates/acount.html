@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block title %}listic acount info{% endblock %} 
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='acount.css') }}">
+<h1>{{ email }}</h1>
+<h1>{{ username }}</h1>
+<div>
+    <br>
+    <br>
+    <h1>LISTS</h1>
+    <br>
+    <ul>
+        {% for lists in user_lists %}
+            <li>
+                <h1>{{ lists.name }}</h1>
+            </li>
+        {% endfor %}
+    </ul>
+    <br>
+    <br>
+    <h1>{{ contacts }}</h1>
+</div>
+    <a href="/logout"><button><h1>log out</h1></button></a>
+{% endblock %}

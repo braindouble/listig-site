@@ -1,0 +1,336 @@
+body{
+    background-color: rgb(240,240,240);
+}
+
+a{
+    color: black;
+}
+
+.search_btn img{
+    height: 2.4vh;
+}
+
+.people img{
+    height: 1.6vh;
+    margin: 0px 0.35vw 0vh 0.1vw;
+}
+
+.link_list{
+    border: black solid 1px;
+    margin: 5px;
+    border-radius: 23px;
+}
+
+
+@media (min-width: 1211px) {
+    .big_content{
+        width: 100vw;
+        height: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .content_holder{
+        width: 40%;
+        margin-top: 5vh;
+        height: auto;
+    }
+
+    .menu{
+        width: 100%;
+        height: 4vh;
+        background-color: white;
+        display: flex;
+        border-radius: 27px;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .content_menu{
+        display: flex;
+        justify-content: center;
+        width: 18%;
+        margin-right: 2.5vw;
+    }
+
+    .add_btn, .search_btn{
+        width: 43%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .add_btn button{
+        background: linear-gradient(229deg, rgba(0,13,255,0.8155418417366946) 7%, rgba(118,0,186,0.9387911414565826) 25%, rgba(205,16,115,0.9387911414565826) 81%);
+        border: none;
+        border-radius: 50%;
+        color: white;
+        font-weight: 700;
+        text-align: center;
+        cursor: pointer;
+        font-size: 1.7vh;
+        width: 3vh;
+        height: 3vh;
+    }
+
+    .search_btn button{
+        background: linear-gradient(229deg, rgba(0,13,255,0.8155418417366946) 7%, rgba(118,0,186,0.9387911414565826) 25%, rgba(205,16,115,0.9387911414565826) 81%);
+        display: flex;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        cursor: pointer;
+        width: 3vh;
+        height: 3vh;
+        border-radius: 50%;
+    }
+
+    .search_btn img{
+        height: 2.4vh;
+    }
+
+
+
+
+    .list_form{
+        width: 82%;
+        margin-right: auto;
+        height: 100%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .extra_flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .list_inputs{
+        width: 70%;
+        display: flex;
+        justify-content: space-evenly;
+        padding-left: 3vw;
+    }
+
+    .list_inputs input{
+        height: 2.3vh;
+        border: 2px solid black;
+        color: black;
+        border-radius: 15px;
+        width: 40%;
+        padding-left: 0.2vw;
+        font-size: 1.1vh;
+    }
+
+    .flex_btn{
+        width: 30%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .submit_btn{
+        background: linear-gradient(229deg, rgba(0,13,255,0.8155418417366946) 7%, rgba(118,0,186,0.9387911414565826) 25%, rgba(205,16,115,0.9387911414565826) 81%);
+        border: none;
+        border-radius: 15px;
+        height: 2.47vh;
+        width: 75%;
+        color: white;
+        text-align: center;
+        font-size: 1.1vh;
+    }
+
+    .search_form{
+        width: 82%;
+        margin-right: auto;
+        height: 100%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .search_bar{
+        height: 2.3vh;
+        border: 2px solid black;
+        color: black;
+        border-radius: 15px;
+        width: 80%;
+        padding-left: 0.2vw;
+        font-size: 1.1vh;
+    }
+
+    .hideButton{
+        display: none;
+    }
+
+    .hideButton button{
+        text-align: center;
+        color: rgb(0, 0, 0);
+        height: 3vh;
+        font-size: 1.9vh;
+        cursor: pointer;
+        width: 3vh;
+        border: 2px black solid;
+        border-radius: 50%;
+        background: transparent;
+    }
+
+    .list_input{
+        width: 70%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .link_list{
+        width: 20%;
+        height: 15vh;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        background-color: transparent;
+    }
+    
+    .list_parent{
+        width: 78%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .list_full{
+        width: 100vw;
+        margin-top: 3vh;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .list_ul{
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        max-width: 70vw;
+    }
+    
+    .list_block{
+        background: white;
+        border-radius: 15px;
+        height: 13vh;
+        width: 85%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .list_content{
+        width: 90%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .list_title{
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    
+    .list_logo{
+        width: 2.5vh;
+        margin-left: 0.3vh;
+        margin-top: 0.3vh;
+        height: 2.5vh;
+        font-size: 1.2vh;
+        text-align: center;
+        background: linear-gradient(229deg, rgba(0,13,255,0.8155418417366946) 7%, rgba(118,0,186,0.9387911414565826) 25%, rgba(205,16,115,0.9387911414565826) 81%);
+        border-radius: 50%;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .list_name{
+        margin-left: 0.6vw;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1vh;
+        max-width: 40%;
+        font-weight: 800;
+    }
+    
+    .list_info{
+        width: 100%;
+        margin-top: auto;
+        height: auto;
+    }
+    
+    .people{
+        display: flex;
+        width: auto;
+    }
+    
+    .people h3{
+        color: rgb(159, 159, 159);
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .people img{
+        height: 1.6vh;
+        margin: 0px 0.35vw 0vh 0.1vw;
+    }
+    
+    .date_delete{
+        width: 100%;
+        margin-top: 0.5vh;
+        display: flex;
+    }
+    
+    .delete{
+        width: 50%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+    
+    .date{
+        width: 50%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+    
+    .date h3{
+        color: rgb(159, 159, 159);
+        margin-left: 0.2.6vh;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .delete button{
+        background-color: rgb(246,62,80);
+        border: none;
+        color: white;
+        border-radius: 50%;
+        height: 1.7vh;
+        font-size: 1.1vh;
+        width: 1.7vh;
+        text-align: center;
+    }
+
+    .edit_div{
+        width: auto;
+        height: 100%;
+        margin-left: auto;
+        border: none;
+        align-items: center;
+    }
+
+    .edit_img{
+        height: 1.8vh;
+    }
+
+    .edit_div button{
+        background-color: transparent;
+        border: none;
+        margin-top: 0.44vh;
+    }
+}

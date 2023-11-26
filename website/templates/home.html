@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block title %}listic home page{% endblock %}
+
+{% block style %}
+        <style>
+            @media (min-width: 1100px) {
+                .right_list a, .left_list a {
+                    color: rgb(206, 16, 114);
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 1.2vh;
+                    transition: color 0.5s, text-shadow 1s;
+                }
+
+                .navbar_logo h1{
+                    color: rgb(206, 16, 114);
+                    font-family: 'Courgette', cursive;
+                    font-size: 3vh;
+                }
+    
+                .right_list a:hover, .left_list a:hover {
+                    color: rgb(255, 0, 132);
+                    text-shadow: 0px 2px 4px rgba(206, 16, 114, 0.78);
+                }
+            }
+        </style>
+{% endblock %}
+<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <div class="home_parent">
+        <div class="home_info">
+            <div class="between_parent">
+                <div class="splitser">
+                    <div class="home_logo">
+                        <h1>Your List Your Way</h1>
+                    </div>
+                        <a href="/example"><button class="home_left_button">see example</button></a>
+                        <a href="/signup"><button class="home_right_button">get started</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% block content %}{% endblock %}

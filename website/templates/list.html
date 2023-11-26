@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block title %}listic lists for you{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='list.css') }}">
+
+<div class="big_content">
+    <div class='content_holder'>
+        <div class="menu">
+            <form class="search_form" action="POST">
+                <div class="extra_flex">
+                    <div class="list_input">
+                        <input class="search_bar" type="search" name="list_search" placeholder="search lists">
+                    </div>
+                    <div class="flex_btn">
+                        <button class="submit_btn" type="submit">search</button>
+                    </div>
+                </div>
+            </form>
+
+            <form class="list_form" method="POST">
+                <div class="extra_flex">
+                    <div class="list_inputs">
+                        {% if placeholder1 == 'enter the name of your list' %}
+                            <input name="list_name" required type="text" placeholder="enter the name of your list">
+                            <input name="share_list" type="text" placeholder="share list with(optional)">
+                        {% elif placeholder1 != 'enter the name of your list' and placeholder2 == '' %}
+                            <input name="list_name" required type="text" value="{{ placeholder1 }}">
+                            <input name="share_list" type="text" placeholder="share list with(optional)">
+                        {% else %}
+                            <input name="list_name" required type="text" value="{{ placeholder1 }}">
+                            <input name="shared_user" type="text" value="{{ placeholder2 }}">
+                        {% endif %}
+                    </div>
+                    <div class="flex_btn">
+                        <button class="submit_btn" type="submit">create list</button>
+                    </div>
+                </div>
+            </form>
+            <div class="content_menu">
+                <div class="add_btn">
+                    <button onclick="toggleForm('add_btn', 'list_form', 'search_btn', 'search_form', 'hideButton')">+</button>
+                </div>
+
+                <div class="search_btn">
+                    <button onclick="toggleForm('search_btn', 'search_form', 'add_btn', 'list_form', 'hideButton')">
+                        <img src="{{ url_for('static', filename='search.png') }}">
+                    </button>
+                </div>
+                <div class="hideButton">
+                    <button onclick="hideAll('add_btn', 'search_btn', 'list_form', 'search_form', 'hideButton')">&times;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="list_full">
+    <div class="list_parent">
+
+        <ul class="list_ul">
+            {% for listing in user.lists %}
+                {% if listing %}
+                        <div class="link_list">
+                                <a class="list_block" href="{{ url_for('views.notes', lister=listing.name) }}">
+                                    <div class="list_content">
+                                        <div class="list_title">
+                                            <div class="list_logo">
+                                                <h2>{{ listing.name[0] }}</h2>
+                                            </div>
+                                            <div class="list_name">
+                                                <h2>{{ listing.name }}</h2>
+                                            </div>
+                                            <div class="edit_div">
+                                                <button><img class="edit_img" src="{{ url_for('static', filename='edit_list.png') }}"></button>
+                                            </div>
+                                        </div>
+                                        <div class="list_info">
+                                            <div class="people">
+                                                <img src="{{ url_for('static', filename='acount.jpg') }}">
+                                                {% set user_list = [] %}
+                                                {% for user in listing.users %}
+                                                    {% set _ = user_list.append(user.username) %}
+                                                {% endfor %}
+                                                {% if user_list|length > 3 %}
+                                                    <h3>{{ user_list[0:3]|join(', ') }} + {{ user_list|length - 3 }}</h3>
+                                                {% else %}
+                                                    <h3>{{ user_list|join(', ') }}</h3>
+                                                {% endif %}
+                                            </div>
+                                            <div class="date_delete">
+                                                <div class="date">
+                                                    {% if listing.date.strftime("%d-%m-%Y") == current_date.strftime("%d-%m-%Y") %}
+                                                        <h3>today</h3>
+                                                    {% else %}
+                                                        <h3>{{ listing.date.strftime("%d-%m-%Y") }}</h3>
+                                                    {% endif %}
+                                                </div>
+                                                <div class="delete">
+                                                    <button onclick=""><h3>&times;</h3></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                        </div>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+    </div>
+</div>
+
+
+<script>
+function toggleForm(buttonId, formClass, showbtn, goneform, hideButtonClass) {
+    const button = document.querySelector(`.${buttonId}`);
+    const form = document.querySelector(`.${formClass}`);
+    const showButton = document.querySelector(`.${showbtn}`);
+    const goneForm = document.querySelector(`.${goneform}`);
+    const hideButton = document.querySelector(`.${hideButtonClass}`);
+    
+    button.style.display = 'none';
+    form.style.display = 'flex';
+    showButton.style.display = 'block';
+    goneForm.style.display = 'none';
+    hideButton.style.display = 'block';
+}
+
+function hideAll(addBtnClass, searchBtnClass, listFormClass, searchFormClass, hideButtonClass) {
+    const addBtn = document.querySelector(`.${addBtnClass}`);
+    const searchBtn = document.querySelector(`.${searchBtnClass}`);
+    const listForm = document.querySelector(`.${listFormClass}`);
+    const searchForm = document.querySelector(`.${searchFormClass}`);
+    const hideButton = document.querySelector(`.${hideButtonClass}`);
+
+    addBtn.style.display = 'block';
+    searchBtn.style.display = 'block';
+    listForm.style.display = 'none';
+    searchForm.style.display = 'none';
+    hideButton.style.display = 'none';
+}
+
+</script>
+{% endblock %}
